@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music On Sign In</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <center>
+        <h1><i>WELCOME TO MY MUSIC</i></h1>
+        <form id="signin-form">
+            <legend><h2>SIGN IN</h2></legend>
+            <h4>USER NAME:</h4>
+            <input type="text" name="username" placeholder="user name" required><br>
+            <h4>EMAIL ID.:</h4>
+            <input type="email" name="email" placeholder="email id" required><br>
+            <h4>MOBILE NO.:</h4>
+            <input type="tel" name="number" placeholder="mobile no." required><br>
+            <h4>PASSWORD:</h4>
+            <input type="password" name="password" placeholder="password" required><br><br>
+            <input class="button" type="submit" value="Sign In"><br>
+            <p>Already have an account? <a href="login.html">Log in</a></p>
+        </form>
+    </center>
+    <script>
+        document.getElementById('signin-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get form values
+            const username = event.target.username.value;
+            const email = event.target.email.value;
+            const number = event.target.number.value;
+            const password = event.target.password.value;
+
+            // Save to local storage
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', email);
+            localStorage.setItem('number', number);
+            localStorage.setItem('password', password);
+
+            // Redirect to login page or show a message
+            alert('Sign in details saved successfully!');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

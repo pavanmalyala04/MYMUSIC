@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music On Login</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <center>
+        <h1><i>WELCOME TO MY MUSIC </i></h1>
+        <form id="loginForm">
+            <legend><h2>LOG IN</h2></legend>
+            <h4>USER NAME:</h4>
+            <input type="text" name="username" id="username" placeholder="user name" required><br>
+            <h4>EMAIL ID.:</h4>
+            <input type="email" name="email" id="email" placeholder="email id" required><br>
+            <h4>PASSWORD:</h4>
+            <input type="password" name="password" id="password" placeholder="password" required><br><br>
+            <input class="button" type="submit" value="Log In"><br>
+            <p>Don't have an account? <a href="signin.html">Sign in</a></p>
+        </form>
+    </center>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Get stored values from local storage
+            const storedUsername = localStorage.getItem('username');
+            const storedEmail = localStorage.getItem('email');
+            const storedPassword = localStorage.getItem('password');
+            
+            // Check if the stored values are not null and if the entered details match the stored values
+            if (storedUsername && storedEmail && storedPassword && 
+                username === storedUsername && email === storedEmail && password === storedPassword) {
+                // Redirect to the main page if login is successful
+                window.location.href = 'samplemusic3.html';
+            } else {
+                // Show an alert if the login details are incorrect
+                alert('Details are wrongly entered!');
+            }
+        });
+    </script>
+</body>
+</html>
